@@ -1,0 +1,9 @@
+{
+    "name": "FacebookProposeExtension",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "content_scripts": [{
+        "matches": ["*://www.facebook.com/*"],
+        "js": ["bundle.js"]
+    }]
+}
