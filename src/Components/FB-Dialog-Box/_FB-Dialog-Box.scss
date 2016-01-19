@@ -7,15 +7,17 @@ $facebookBlue: #6e84b5;
 .fb-dialog-box {
 	position: absolute;
 	top: 0;
-	left: 25%;
+	left: 30%;
 	top: 3%;
 	display: inline-block;
-	width: 50%;
+	width: 40%;
 	z-index: 600;
+	border: 10px solid $backgroundGrey;
+	border-radius: 10px;
 
 	&__title {
-		padding: 6px 6px 6px 8px;
-		font-size: 14px;
+		padding: 6px 6px 6px 12px;
+		font-size: 16px;
 		font-weight: bold;
 		border: solid 1px #3b5998;
 		color: $titleWhite;
@@ -23,8 +25,10 @@ $facebookBlue: #6e84b5;
 	}
 
 	&__subtitle {
-		padding: 8px 10px;
+		padding: 8px 13px;
 		font-size: 12px;
+		border-left: solid 1px #555;
+		border-right: solid 1px #555;
 		border-bottom: solid 1px #ddd;
 		color: #666;
 		background-color: #f0f0f0;
@@ -32,10 +36,15 @@ $facebookBlue: #6e84b5;
 
 	&__body {
 		padding: 10px;
+		border-left: solid 1px #555;
+		border-right: solid 1px #555;
 		background-color: #fff;
 	}
 
 	&__footer {
+		border-left: solid 1px #555;
+		border-right: solid 1px #555;
+		border-bottom: solid 1px #555;
 		padding: 8px 10px;
 		height: 26px;
 		text-align: right;

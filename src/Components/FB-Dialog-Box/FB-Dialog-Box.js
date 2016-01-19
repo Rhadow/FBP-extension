@@ -24,7 +24,6 @@ class FBDialogBox extends Component {
 			});
 		return (
 			<div className="fb-dialog-box">
-				<div className="fb-dialog-box__top-shade"></div>
 				<div className="fb-dialog-box__title">{ title }</div>
 				<div className="fb-dialog-box__subtitle">{ subtitle }</div>
 				<div className="fb-dialog-box__body">{ body }</div>
@@ -40,7 +39,6 @@ class FBDialogBox extends Component {
 					    </div>
 					</div>
 				</div>
-				<div className="fb-dialog-box__bottom-shade"></div>
 			</div>
 		);
 	}
