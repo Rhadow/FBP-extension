@@ -1,0 +1,99 @@
+$backgroundGrey: #848484;
+$titleWhite: #fff;
+$facebookBlue: #6e84b5;
+
+
+
+.fb-dialog-box {
+	position: absolute;
+	top: 0;
+	left: 25%;
+	top: 3%;
+	display: inline-block;
+	width: 50%;
+	z-index: 600;
+
+	&__title {
+		padding: 6px 6px 6px 8px;
+		font-size: 14px;
+		font-weight: bold;
+		border: solid 1px #3b5998;
+		color: $titleWhite;
+		background-color: $facebookBlue;
+	}
+
+	&__subtitle {
+		padding: 8px 10px;
+		font-size: 12px;
+		border-bottom: solid 1px #ddd;
+		color: #666;
+		background-color: #f0f0f0;
+	}
+
+	&__body {
+		padding: 10px;
+		background-color: #fff;
+	}
+
+	&__footer {
+		padding: 8px 10px;
+		height: 26px;
+		text-align: right;
+		border-top: solid 1px #ddd;
+		background-color: #f0f0f0;
+	}
+
+
+	&__top-shade {
+		height: 10px;
+		background-color: $backgroundGrey;
+	}
+	&__bottom-shade {
+		height: 10px;
+		background-color: $backgroundGrey;
+	}
+
+
+	&__confirm-button {
+		border: solid #29447e 1px;
+		border-bottom: solid #1a356e 1px;
+		cursor: pointer;
+		display:inline-block;
+		&--inner {
+			padding: 4px 6px;
+			border-top: 1px solid #8a9cc2;
+			text-align: center;
+			font-weight: bold;
+			font-size: 12px;
+			color: #fff;
+			background-color: #5c75a9;
+		}
+		&--hide {
+			display: none;
+		}
+	}
+	&__cancel-button {
+		margin-left: 10px;
+		border: solid 1px #9b9b9b;
+		cursor: pointer;
+		display:inline-block;
+		&--inner {
+			padding: 4px 6px;
+			border-top: 1px solid #fff;
+			text-align: center;
+			font-weight: bold;
+			font-size: 12px;
+			color: #333;
+			background-color: #e1e0e0;
+		}
+		&--hide {
+			display: none;
+		}
+	}
+	&_right {
+		float: right;
+	}
+	&_clear {
+		clear: both;
+	}
+}

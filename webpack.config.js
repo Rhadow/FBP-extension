@@ -1,11 +1,13 @@
 var path = require('path'),
     autoprefixer = require('autoprefixer'),
-    precss = require('precss'),
-    pkg = require('./package.json');
+    precss = require('precss');
 
-var nodeModulesPath = path.resolve(__dirname, 'node_modules'),
+var eslintrcPath = path.resolve(__dirname, '.eslintrc'),
+    nodeModulesPath = path.resolve(__dirname, 'node_modules'),
     buildPath = path.resolve(__dirname, 'dist'),
     mainPath = path.resolve(__dirname, 'src', 'index.js');
+
+process.env.NODE_ENV = 'production';
 
 var config = {
     entry: {
@@ -19,6 +21,13 @@ var config = {
         publicPath: '/build/'
     },
     module: {
+        preLoaders: [
+            {
+                test: /\.js(x)?$/,
+                loader: 'eslint',
+                exclude: nodeModulesPath
+            }
+        ],
         loaders: [
             {
                 test: /\.js(x)?$/,
@@ -41,6 +50,9 @@ var config = {
     },
     resolve: {
         extensions: ['', '.js', '.jsx', '.css', '.scss']
+    },
+    eslint: {
+        configFile: eslintrcPath
     },
     postcss: function () {
         return [autoprefixer, precss];
