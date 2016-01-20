@@ -14,7 +14,11 @@ class FBDialogBox extends Component {
 			onConfirmHandler,
 			onCancelHandler
 		} = this.props;
-		let confirmButtonClasses = classnames({
+		let subTitleClasses = classnames({
+				'fb-dialog-box__subtitle': subtitle,
+				'fb-dialog-box__subtitle--hide': !subtitle,
+			}),
+			confirmButtonClasses = classnames({
 				'fb-dialog-box__confirm-button': confirmButtonText,
 				'fb-dialog-box__confirm-button--hide': !confirmButtonText,
 			}),
@@ -25,7 +29,7 @@ class FBDialogBox extends Component {
 		return (
 			<div className="fb-dialog-box">
 				<div className="fb-dialog-box__title">{ title }</div>
-				<div className="fb-dialog-box__subtitle">{ subtitle }</div>
+				<div className={ subTitleClasses }>{ subtitle }</div>
 				<div className="fb-dialog-box__body">{ body }</div>
 				<div className="fb-dialog-box__footer">
 					<div className={ confirmButtonClasses } onClick={ onConfirmHandler }>
