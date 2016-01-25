@@ -33,15 +33,18 @@ class Root extends Component {
 			confirmButtonText,
 			cancelButtonText,
 			relationOptions,
+			stepThreePhotos,
+			stepFourPhotos,
+			stepFivePhotos,
 			changeStep
 		} = this.props;
 		const stepComponents = [
 			<Hint/>,
 			<StepOne />,
 			<StepTwo options={relationOptions}/>,
-			<FriendGuesser photos={['https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTUDQgbT9PFaERFaLbqP8sFsyq2r3sSYu6BtCj63z90tLEpALgo']} />,
-			<FriendGuesser photos={['http://jbcdn2.b0.upaiyun.com/2012/03/urls.jpg', 'http://jbcdn2.b0.upaiyun.com/2012/03/urls.jpg']} />,
-			<FriendGuesser photos={['https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTnwSm4ZUaEppf8gDl8xvqYFHuoNKR88zPjGKUXQPQmc2WKjS157w']} />,
+			<FriendGuesser photos={stepThreePhotos} />,
+			<FriendGuesser photos={stepFourPhotos} />,
+			<FriendGuesser photos={stepFivePhotos} />,
 			<Result />
 		];
 
@@ -68,6 +71,10 @@ Root.propTypes = {
 	confirmButtonText: PropTypes.string,
 	cancelButtonText : PropTypes.string,
 	relationOptions  : PropTypes.array,
+	stepThreePhotos  : PropTypes.array,
+	stepFourPhotos   : PropTypes.array,
+	stepFivePhotos   : PropTypes.array,
+	stepSixPhotos    : PropTypes.array,
 	changeStep       : PropTypes.func
 };
 

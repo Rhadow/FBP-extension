@@ -1,0 +1,10 @@
+.friend-guesser {
+	&__option {
+		display: inline-block;
+		margin-right: 14px;
+		text-align: center;
+	}
+	&__image {
+		display: block;
+	}
+}

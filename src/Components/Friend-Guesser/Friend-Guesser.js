@@ -3,9 +3,9 @@ import React, { Component, PropTypes } from 'react';
 
 let option = (imgUrl, index) => {
 	return (
-		<div className="radio" key={index}>
-	    	<img className="form-input__title" src={imgUrl} />
-	    	<input className="form-input__input" type="radio" name="friend"/>
+		<div className="friend-guesser__option" key={index}>
+	    	<img className="friend-guesser__image" src={imgUrl} />
+	    	<input className="friend-guesser__input" type="radio" name="friend"/>
 	    </div>
 	);
 };
