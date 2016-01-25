@@ -31,12 +31,14 @@ class Root extends Component {
 			title,
 			subTitle,
 			confirmButtonText,
-			cancelButtonText
+			cancelButtonText,
+			relationOptions,
+			changeStep
 		} = this.props;
 		const stepComponents = [
 			<Hint/>,
 			<StepOne />,
-			<StepTwo />,
+			<StepTwo options={relationOptions}/>,
 			<FriendGuesser photos={['https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTUDQgbT9PFaERFaLbqP8sFsyq2r3sSYu6BtCj63z90tLEpALgo']} />,
 			<FriendGuesser photos={['http://jbcdn2.b0.upaiyun.com/2012/03/urls.jpg', 'http://jbcdn2.b0.upaiyun.com/2012/03/urls.jpg']} />,
 			<FriendGuesser photos={['https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTnwSm4ZUaEppf8gDl8xvqYFHuoNKR88zPjGKUXQPQmc2WKjS157w']} />,
@@ -53,19 +55,20 @@ class Root extends Component {
 				    confirmButtonText={confirmButtonText}
 				    cancelButtonText={cancelButtonText}
 				    onConfirmHandler={this._onConfirmClicked}
-				    onCancelHandler={() => console.log('cancel')}/>
+				    onCancelHandler={() => changeStep(currentStep - 1)}/>
 			</div>
 		);
 	}
 };
 
 Root.propTypes = {
-	currentStep: PropTypes.number,
-	title: PropTypes.string,
-	subTitle: PropTypes.string,
+	currentStep      : PropTypes.number,
+	title            : PropTypes.string,
+	subTitle         : PropTypes.string,
 	confirmButtonText: PropTypes.string,
-	cancelButtonText: PropTypes.string,
-	changeStep: PropTypes.func
+	cancelButtonText : PropTypes.string,
+	relationOptions  : PropTypes.array,
+	changeStep       : PropTypes.func
 };
 
 const mapStateToProps = (state) => {

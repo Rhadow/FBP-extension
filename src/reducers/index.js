@@ -8,7 +8,18 @@ const initialState = Map({
 	title: 'Initial title',
 	subTitle: 'Initial subtitle',
 	confirmButtonText: 'ok',
-	cancelButtonText: 'cancel'
+	cancelButtonText: 'cancel',
+	relationOptions: [
+	    'Single',
+	    'In a relationship',
+	    'Engaged',
+	    'Married',
+	    'It\'s complicated',
+	    'In an open relationship',
+	    'Widowed',
+	    'Separated',
+	    'Divorced'
+	]
 });
 
 const configureStepOne = (state) => {
@@ -28,7 +39,11 @@ const configureStepFour = (state) => {
 };
 
 const configureStepFive = (state) => {
-	return state.set('currentStep', 5).set('title', 'Step 5').set('cancelButtonText', 'lol');
+	return state
+			.set('currentStep', 5)
+			.set('title', 'Step 5')
+			.set('cancelButtonText', '')
+			.set('confirmButtonText', '');
 };
 
 const configureStepSix = (state) => {

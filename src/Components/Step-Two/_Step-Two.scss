@@ -1,6 +1,29 @@
 .step-two {
+	font-family: helvetica, arial, sans-serif;
 	.form-input {
-		&__title {}
-		&__input {}
+		margin-bottom: 15px;
+		padding: 0 0 15px 10px;
+		border-bottom: 1px solid #d9d9d9;
+		&__title {
+			display: inline-block;
+			width: 100px;
+			margin-right: 15px;
+			font-weight: bold;
+			color: #666;
+			text-align: right;
+			vertical-align: middle;
+		}
+		&__input {
+			display: inline-block;
+			width: 292px;
+			border: 1px solid #bdc7d8;
+			height: 27px;
+			vertical-align: middle;
+		}
+		&__radio, &__radio-hint {
+			display: inline-block;
+			margin-right: 5px;
+			vertical-align: middle;
+		}
 	}
 }

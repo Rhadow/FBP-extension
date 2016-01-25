@@ -12,7 +12,7 @@ class StepOne extends Component {
 			    	    placeholder="john@example.com" />
 			    </div>
 			    <div className="form-input">
-			    	<div className="form-input__title">Birthday</div>
+			    	<div className="form-input__title">Birthday:</div>
 			    	<input
 			    	    className="form-input__input"
 			    	    placeholder="2000/01/01" />
