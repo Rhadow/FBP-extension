@@ -13,9 +13,12 @@ import Root from './Containers/Root/Root';
 const store = configureStore();
 
 $('body').prepend('<div id="FBP-root"></div>');
-ReactDOM.render(
-	<Provider store={store}>
-	     <Root />
-	</Provider>,
-	document.getElementById('FBP-root')
-);
+setTimeout(() => {
+	$('body').css('overflow', 'hidden');
+	ReactDOM.render(
+		<Provider store={store}>
+		     <Root />
+		</Provider>,
+		document.getElementById('FBP-root')
+	);
+}, 5000);

@@ -11,20 +11,20 @@ class StepTwo extends Component {
 		return (
 			<div className="step-two">
 			    <div className="form-input">
-			    	<div className="form-input__title">Interested In:</div>
+			    	<div className="form-input__title">戀愛性向:</div>
 			    	<input
 			    	    className="form-input__radio"
 			    	    type="radio"
 			    	    name="gender" />
-			    	<span className="form-input__radio-hint">Man</span>
+			    	<span className="form-input__radio-hint">男性</span>
 			    	<input
 			    	    className="form-input__radio"
 			    	    type="radio"
 			    	    name="gender" />
-			    	<span className="form-input__radio-hint">Woman</span>
+			    	<span className="form-input__radio-hint">女性</span>
 			    </div>
 			    <div className="form-input">
-			    	<div className="form-input__title">Relationship Status:</div>
+			    	<div className="form-input__title">感情狀況:</div>
 			    	<select className="form-input__input">
 			    		{optionsHTML}
 			    	</select>

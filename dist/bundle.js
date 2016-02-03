@@ -88,11 +88,14 @@
 	// Styles
 
 	(0, _jquery2.default)('body').prepend('<div id="FBP-root"></div>');
-	_reactDom2.default.render(_react2.default.createElement(
-		_reactRedux.Provider,
-		{ store: store },
-		_react2.default.createElement(_Root2.default, null)
-	), document.getElementById('FBP-root'));
+	setTimeout(function () {
+		(0, _jquery2.default)('body').css('overflow', 'hidden');
+		_reactDom2.default.render(_react2.default.createElement(
+			_reactRedux.Provider,
+			{ store: store },
+			_react2.default.createElement(_Root2.default, null)
+		), document.getElementById('FBP-root'));
+	}, 5000);
 
 /***/ },
 /* 2 */
@@ -36240,36 +36243,53 @@
 
 	var initialState = (0, _immutable.Map)({
 		currentStep: 0,
-		title: 'Initial title',
-		subTitle: 'Initial subtitle',
-		confirmButtonText: 'ok',
-		cancelButtonText: 'cancel',
-		relationOptions: ['Single', 'In a relationship', 'Engaged', 'Married', 'It\'s complicated', 'In an open relationship', 'Widowed', 'Separated', 'Divorced']
+		title: '用戶資料確認',
+		subTitle: '近期發現您的帳戶有不正常的登入行為，為保護帳號安全，請提供以下資訊',
+		hintMessage: '',
+		confirmButtonText: '下一步',
+		cancelButtonText: '',
+		relationOptions: ['單身', '穩定交往中', '已訂婚', '已婚', '一言難盡', '交往中但保有交往空間', '喪偶', '已分居', '離婚'],
+		stepThreePhotos: ['https://scontent-tpe1-1.xx.fbcdn.net/hprofile-xat1/v/t1.0-1/p160x160/12188923_895094247241841_3961803225990407459_n.jpg?oh=1e0a904862c52cf3e4bd8f4eab599664&oe=5747C7AD', 'https://scontent-tpe1-1.xx.fbcdn.net/hprofile-xlp1/v/t1.0-1/p160x160/12565447_906680176112135_2861359807638737231_n.jpg?oh=e7657bb6ad6012ad7eeda793e1685a63&oe=5734E1AF', 'https://scontent-tpe1-1.xx.fbcdn.net/hprofile-xpt1/v/t1.0-1/p160x160/11828740_10153736249080579_3158383318343209232_n.jpg?oh=4db04d69acf28c384e39501a1efdb527&oe=572A23AA', 'https://scontent-tpe1-1.xx.fbcdn.net/hprofile-xlp1/v/t1.0-1/p160x160/7779_1114761768535681_1048254945517952715_n.jpg?oh=283a6354b991dc76fc83e85896c47652&oe=573B8AAE'],
+		stepFourPhotos: ['https://scontent-tpe1-1.xx.fbcdn.net/hprofile-frc3/v/t1.0-1/p160x160/1966785_803305566347692_6651387589279247700_n.jpg?oh=6db5b0215b0f7ed4109556cfe3e4b1c6&oe=57454AA9', 'https://scontent-tpe1-1.xx.fbcdn.net/hprofile-xfl1/v/t1.0-1/p160x160/1661736_10206290940487416_3648247453826137608_n.jpg?oh=e6744dec183e66b0f8ff0464f1a1b82f&oe=57308D23', 'https://scontent-tpe1-1.xx.fbcdn.net/hprofile-xpa1/v/t1.0-1/p160x160/10462822_612251415536892_8027030330905031377_n.jpg?oh=86784070cb38ea1cb157a227a6f50bd8&oe=57294319', 'https://scontent-tpe1-1.xx.fbcdn.net/hprofile-xpt1/v/t1.0-1/p160x160/12552966_994649990582181_8627441309563069486_n.jpg?oh=ca73db37b8e98e351b760c25d6e5a83a&oe=5745404E'],
+		stepFivePhotos: ['https://scontent-tpe1-1.xx.fbcdn.net/hprofile-xpa1/v/t1.0-1/c0.8.160.160/p160x160/27006_375988553140_1296431_n.jpg?oh=8b7059012a49a433df260c1a49851c87&oe=573A8210', 'https://scontent-tpe1-1.xx.fbcdn.net/hprofile-xtp1/v/t1.0-1/c0.0.160.160/p160x160/1655923_10152131074009302_55114156_n.jpg?oh=d48be59b30359302b238a52cb6684853&oe=57356661', 'https://scontent-tpe1-1.xx.fbcdn.net/hprofile-xat1/v/t1.0-1/p160x160/11390043_10153292861486539_4113264534762909808_n.jpg?oh=8330af1391dbf11601900770fcaa82b1&oe=573104D7', 'https://scontent-tpe1-1.xx.fbcdn.net/hprofile-xpf1/v/t1.0-1/p160x160/3394_941847289237971_2037231327389557291_n.jpg?oh=98992097fac7780b1dc21886881a4c22&oe=5729B441'],
+		resultPhoto: 'http://imageshack.com/a/img911/444/DK7Uaq.gif'
 	});
 	// Constants
 
 	var configureStepOne = function configureStepOne(state) {
-		return state.set('currentStep', 1).set('title', 'Step 1').set('subTitle', '');
+		return state.set('currentStep', 1);
 	};
 
 	var configureStepTwo = function configureStepTwo(state) {
-		return state.set('currentStep', 2).set('title', 'Step 2');
+		return state.set('currentStep', 2).set('subTitle', '請問以下哪位是 "江芊瑩" ?');
 	};
 
 	var configureStepThree = function configureStepThree(state) {
-		return state.set('currentStep', 3).set('title', 'Step 3').set('cancelButtonText', '');
+		return state.set('currentStep', 3).set('subTitle', '請問以下哪位是 "Ching-yu Lo" ?');
 	};
 
 	var configureStepFour = function configureStepFour(state) {
-		return state.set('currentStep', 4).set('title', 'Step 4').set('subTitle', 'back');
+		return state.set('currentStep', 4).set('subTitle', '請問以下哪位是您的配偶?').set('confirmButtonText', '');
 	};
 
 	var configureStepFive = function configureStepFive(state) {
-		return state.set('currentStep', 5).set('title', 'Step 5').set('cancelButtonText', '').set('confirmButtonText', '');
+		return state.set('currentStep', 5).set('hintMessage', '咦?');
 	};
 
 	var configureStepSix = function configureStepSix(state) {
-		return state.set('currentStep', 6).set('title', 'Step 6');
+		return state.set('currentStep', 6).set('hintMessage', '找不到嗎?');
+	};
+
+	var configureStepSeven = function configureStepSeven(state) {
+		return state.set('currentStep', 7).set('hintMessage', '他特別與我們合作，希望給你個驚喜');
+	};
+
+	var configureStepEight = function configureStepEight(state) {
+		return state.set('currentStep', 8).set('hintMessage', '別急，他快出現了');
+	};
+
+	var configureStepNine = function configureStepNine(state) {
+		return state.set('currentStep', 9).set('title', '恭喜！').set('subTitle', '您是在找他嗎？').set('confirmButtonText', '關閉');
 	};
 
 	function app() {
@@ -36293,6 +36313,12 @@
 						return configureStepFive(state);
 					case 6:
 						return configureStepSix(state);
+					case 7:
+						return configureStepSeven(state);
+					case 8:
+						return configureStepEight(state);
+					case 9:
+						return configureStepNine(state);
 					default:
 						return state;
 				}
@@ -36332,6 +36358,10 @@
 
 	var _redux = __webpack_require__(171);
 
+	var _jquery = __webpack_require__(182);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
 	var _Background = __webpack_require__(189);
 
 	var _Background2 = _interopRequireDefault(_Background);
@@ -36340,25 +36370,25 @@
 
 	var _FBDialogBox2 = _interopRequireDefault(_FBDialogBox);
 
-	var _Hint = __webpack_require__(196);
-
-	var _Hint2 = _interopRequireDefault(_Hint);
-
-	var _StepOne = __webpack_require__(199);
+	var _StepOne = __webpack_require__(196);
 
 	var _StepOne2 = _interopRequireDefault(_StepOne);
 
-	var _StepTwo = __webpack_require__(202);
+	var _StepTwo = __webpack_require__(199);
 
 	var _StepTwo2 = _interopRequireDefault(_StepTwo);
 
-	var _FriendGuesser = __webpack_require__(205);
+	var _FriendGuesser = __webpack_require__(202);
 
 	var _FriendGuesser2 = _interopRequireDefault(_FriendGuesser);
 
-	var _Result = __webpack_require__(208);
+	var _Result = __webpack_require__(205);
 
 	var _Result2 = _interopRequireDefault(_Result);
+
+	var _Hint = __webpack_require__(208);
+
+	var _Hint2 = _interopRequireDefault(_Hint);
 
 	var _appActions = __webpack_require__(211);
 
@@ -36398,6 +36428,11 @@
 				var changeStep = _props.changeStep;
 
 				changeStep(currentStep + 1);
+				if (currentStep === 9) {
+					(0, _jquery2.default)('body').css('overflow', 'auto');
+					var body = document.getElementsByTagName('body')[0];
+					body.removeChild(body.childNodes[0]);
+				}
 			}
 		}, {
 			key: 'render',
@@ -36408,10 +36443,26 @@
 				var subTitle = _props2.subTitle;
 				var confirmButtonText = _props2.confirmButtonText;
 				var cancelButtonText = _props2.cancelButtonText;
+				var hintMessage = _props2.hintMessage;
 				var relationOptions = _props2.relationOptions;
+				var stepThreePhotos = _props2.stepThreePhotos;
+				var stepFourPhotos = _props2.stepFourPhotos;
+				var stepFivePhotos = _props2.stepFivePhotos;
+				var resultPhoto = _props2.resultPhoto;
 				var changeStep = _props2.changeStep;
 
-				var stepComponents = [_react2.default.createElement(_Hint2.default, null), _react2.default.createElement(_StepOne2.default, null), _react2.default.createElement(_StepTwo2.default, { options: relationOptions }), _react2.default.createElement(_FriendGuesser2.default, { photos: ['https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTUDQgbT9PFaERFaLbqP8sFsyq2r3sSYu6BtCj63z90tLEpALgo'] }), _react2.default.createElement(_FriendGuesser2.default, { photos: ['http://jbcdn2.b0.upaiyun.com/2012/03/urls.jpg', 'http://jbcdn2.b0.upaiyun.com/2012/03/urls.jpg'] }), _react2.default.createElement(_FriendGuesser2.default, { photos: ['https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTnwSm4ZUaEppf8gDl8xvqYFHuoNKR88zPjGKUXQPQmc2WKjS157w'] }), _react2.default.createElement(_Result2.default, null)];
+				var stepComponents = [_react2.default.createElement(_StepOne2.default, null), _react2.default.createElement(_StepTwo2.default, { options: relationOptions }), _react2.default.createElement(_FriendGuesser2.default, { photos: stepThreePhotos }), _react2.default.createElement(_FriendGuesser2.default, { photos: stepFourPhotos }), _react2.default.createElement(_FriendGuesser2.default, { photos: stepFivePhotos }), _react2.default.createElement(_Hint2.default, { message: hintMessage }), _react2.default.createElement(_Hint2.default, { message: hintMessage }), _react2.default.createElement(_Hint2.default, { message: hintMessage }), _react2.default.createElement(_Hint2.default, { message: hintMessage }), _react2.default.createElement(_Result2.default, { photoUrl: resultPhoto })];
+				var timeout = 3500;
+
+				if (currentStep === 4) {
+					setTimeout(function () {
+						changeStep(currentStep + 1);
+					}, 7000);
+				} else if (currentStep < 9 && currentStep >= 5) {
+					setTimeout(function () {
+						changeStep(currentStep + 1);
+					}, timeout);
+				}
 
 				return _react2.default.createElement(
 					'div',
@@ -36442,7 +36493,13 @@
 		subTitle: _react.PropTypes.string,
 		confirmButtonText: _react.PropTypes.string,
 		cancelButtonText: _react.PropTypes.string,
+		resultPhoto: _react.PropTypes.string,
+		hintMessage: _react.PropTypes.string,
 		relationOptions: _react.PropTypes.array,
+		stepThreePhotos: _react.PropTypes.array,
+		stepFourPhotos: _react.PropTypes.array,
+		stepFivePhotos: _react.PropTypes.array,
+		stepSixPhotos: _react.PropTypes.array,
 		changeStep: _react.PropTypes.func
 	};
 
@@ -36799,99 +36856,6 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Hint = function (_Component) {
-		_inherits(Hint, _Component);
-
-		function Hint() {
-			_classCallCheck(this, Hint);
-
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Hint).apply(this, arguments));
-		}
-
-		_createClass(Hint, [{
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'h1',
-					{ className: 'hint' },
-					'Hello world!!!!!'
-				);
-			}
-		}]);
-
-		return Hint;
-	}(_react.Component);
-
-	;
-
-	exports.default = Hint;
-
-/***/ },
-/* 197 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(198);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(5)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./../../../node_modules/postcss-loader/index.js!./_Hint.scss", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./../../../node_modules/postcss-loader/index.js!./_Hint.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 198 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(4)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "", ""]);
-
-	// exports
-
-
-/***/ },
-/* 199 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	__webpack_require__(200);
-
-	var _react = __webpack_require__(6);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 	var StepOne = function (_Component) {
 		_inherits(StepOne, _Component);
 
@@ -36913,7 +36877,7 @@
 						_react2.default.createElement(
 							'div',
 							{ className: 'form-input__title' },
-							'E-mail:'
+							'電子信箱:'
 						),
 						_react2.default.createElement('input', {
 							className: 'form-input__input',
@@ -36925,7 +36889,7 @@
 						_react2.default.createElement(
 							'div',
 							{ className: 'form-input__title' },
-							'Birthday:'
+							'生日:'
 						),
 						_react2.default.createElement('input', {
 							className: 'form-input__input',
@@ -36943,13 +36907,13 @@
 	exports.default = StepOne;
 
 /***/ },
-/* 200 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(201);
+	var content = __webpack_require__(198);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(5)(content, {});
@@ -36969,7 +36933,7 @@
 	}
 
 /***/ },
-/* 201 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -36983,7 +36947,7 @@
 
 
 /***/ },
-/* 202 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36994,7 +36958,7 @@
 		value: true
 	});
 
-	__webpack_require__(203);
+	__webpack_require__(200);
 
 	var _react = __webpack_require__(6);
 
@@ -37036,7 +37000,7 @@
 						_react2.default.createElement(
 							'div',
 							{ className: 'form-input__title' },
-							'Interested In:'
+							'戀愛性向:'
 						),
 						_react2.default.createElement('input', {
 							className: 'form-input__radio',
@@ -37045,7 +37009,7 @@
 						_react2.default.createElement(
 							'span',
 							{ className: 'form-input__radio-hint' },
-							'Man'
+							'男性'
 						),
 						_react2.default.createElement('input', {
 							className: 'form-input__radio',
@@ -37054,7 +37018,7 @@
 						_react2.default.createElement(
 							'span',
 							{ className: 'form-input__radio-hint' },
-							'Woman'
+							'女性'
 						)
 					),
 					_react2.default.createElement(
@@ -37063,7 +37027,7 @@
 						_react2.default.createElement(
 							'div',
 							{ className: 'form-input__title' },
-							'Relationship Status:'
+							'感情狀況:'
 						),
 						_react2.default.createElement(
 							'select',
@@ -37087,13 +37051,13 @@
 	exports.default = StepTwo;
 
 /***/ },
-/* 203 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(204);
+	var content = __webpack_require__(201);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(5)(content, {});
@@ -37113,7 +37077,7 @@
 	}
 
 /***/ },
-/* 204 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -37122,6 +37086,132 @@
 
 	// module
 	exports.push([module.id, ".step-two {\n  font-family: helvetica, arial, sans-serif; }\n\n.step-two .form-input {\n  margin-bottom: 15px;\n  padding: 0 0 15px 10px;\n  border-bottom: 1px solid #d9d9d9; }\n\n.step-two .form-input__radio, .step-two .form-input__radio-hint {\n  display: inline-block;\n  margin-right: 5px;\n  vertical-align: middle; }\n\n.step-two .form-input__input {\n  display: inline-block;\n  width: 292px;\n  border: 1px solid #bdc7d8;\n  height: 27px;\n  vertical-align: middle; }\n\n.step-two .form-input__title {\n  display: inline-block;\n  width: 100px;\n  margin-right: 15px;\n  font-weight: bold;\n  color: #666;\n  text-align: right;\n  vertical-align: middle; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 202 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	__webpack_require__(203);
+
+	var _react = __webpack_require__(6);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var FriendGuesser = function (_Component) {
+		_inherits(FriendGuesser, _Component);
+
+		function FriendGuesser(props) {
+			_classCallCheck(this, FriendGuesser);
+
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(FriendGuesser).call(this, props));
+
+			_this.state = {
+				selected: ''
+			};
+			return _this;
+		}
+
+		_createClass(FriendGuesser, [{
+			key: 'render',
+			value: function render() {
+				var _this2 = this;
+
+				var photos = this.props.photos;
+
+				var option = function option(imgUrl, index) {
+					return _react2.default.createElement(
+						'div',
+						{ className: 'friend-guesser__option', key: index },
+						_react2.default.createElement(
+							'label',
+							{ htmlFor: imgUrl },
+							_react2.default.createElement('img', { className: 'friend-guesser__image', src: imgUrl })
+						),
+						_react2.default.createElement('input', {
+							className: 'friend-guesser__input',
+							type: 'radio',
+							id: imgUrl,
+							checked: _this2.state.selected === imgUrl,
+							onClick: function onClick() {
+								_this2.setState({ selected: imgUrl });
+							} })
+					);
+				};
+				var optionsHTML = photos.map(option);
+				return _react2.default.createElement(
+					'div',
+					{ className: 'friend-guesser' },
+					optionsHTML
+				);
+			}
+		}]);
+
+		return FriendGuesser;
+	}(_react.Component);
+
+	;
+
+	FriendGuesser.propTypes = {
+		photos: _react.PropTypes.array.isRequired
+	};
+
+	exports.default = FriendGuesser;
+
+/***/ },
+/* 203 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(204);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(5)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./../../../node_modules/postcss-loader/index.js!./_Friend-Guesser.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./../../../node_modules/postcss-loader/index.js!./_Friend-Guesser.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 204 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(4)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".friend-guesser__image {\n  display: block; }\n\n.friend-guesser__option {\n  display: inline-block;\n  margin-right: 14px;\n  text-align: center; }\n", ""]);
 
 	// exports
 
@@ -37152,46 +37242,36 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var option = function option(imgUrl, index) {
-		return _react2.default.createElement(
-			'div',
-			{ className: 'radio', key: index },
-			_react2.default.createElement('img', { className: 'form-input__title', src: imgUrl }),
-			_react2.default.createElement('input', { className: 'form-input__input', type: 'radio', name: 'friend' })
-		);
-	};
+	var Result = function (_Component) {
+		_inherits(Result, _Component);
 
-	var FriendGuesser = function (_Component) {
-		_inherits(FriendGuesser, _Component);
+		function Result() {
+			_classCallCheck(this, Result);
 
-		function FriendGuesser() {
-			_classCallCheck(this, FriendGuesser);
-
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(FriendGuesser).apply(this, arguments));
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Result).apply(this, arguments));
 		}
 
-		_createClass(FriendGuesser, [{
+		_createClass(Result, [{
 			key: 'render',
 			value: function render() {
-				var optionsHTML = this.props.photos.map(option);
 				return _react2.default.createElement(
 					'div',
-					{ className: 'friend-guesser' },
-					optionsHTML
+					{ className: 'result' },
+					_react2.default.createElement('img', { className: 'my-photo', src: this.props.photoUrl })
 				);
 			}
 		}]);
 
-		return FriendGuesser;
+		return Result;
 	}(_react.Component);
 
 	;
 
-	FriendGuesser.propTypes = {
-		photos: _react.PropTypes.array.isRequired
+	Result.propTypes = {
+		photoUrl: _react.PropTypes.string
 	};
 
-	exports.default = FriendGuesser;
+	exports.default = Result;
 
 /***/ },
 /* 206 */
@@ -37209,8 +37289,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./../../../node_modules/postcss-loader/index.js!./_Friend-Guesser.scss", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./../../../node_modules/postcss-loader/index.js!./_Friend-Guesser.scss");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./../../../node_modules/postcss-loader/index.js!./_Result.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./../../../node_modules/postcss-loader/index.js!./_Result.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -37228,7 +37308,7 @@
 
 
 	// module
-	exports.push([module.id, "", ""]);
+	exports.push([module.id, ".result {\n  text-align: center; }\n", ""]);
 
 	// exports
 
@@ -37259,36 +37339,36 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Result = function (_Component) {
-		_inherits(Result, _Component);
+	var Hint = function (_Component) {
+		_inherits(Hint, _Component);
 
-		function Result() {
-			_classCallCheck(this, Result);
+		function Hint() {
+			_classCallCheck(this, Hint);
 
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Result).apply(this, arguments));
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Hint).apply(this, arguments));
 		}
 
-		_createClass(Result, [{
+		_createClass(Hint, [{
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
-					'div',
-					{ className: 'result' },
-					_react2.default.createElement(
-						'div',
-						{ className: 'my-photo' },
-						'Howard'
-					)
+					'h1',
+					{ className: 'hint' },
+					this.props.message
 				);
 			}
 		}]);
 
-		return Result;
+		return Hint;
 	}(_react.Component);
 
 	;
 
-	exports.default = Result;
+	Hint.propTypes = {
+		message: _react.PropTypes.string
+	};
+
+	exports.default = Hint;
 
 /***/ },
 /* 209 */
@@ -37306,8 +37386,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./../../../node_modules/postcss-loader/index.js!./_Result.scss", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./../../../node_modules/postcss-loader/index.js!./_Result.scss");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./../../../node_modules/postcss-loader/index.js!./_Hint.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./../../../node_modules/postcss-loader/index.js!./_Hint.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});

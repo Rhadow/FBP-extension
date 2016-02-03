@@ -1,14 +1,18 @@
 import './_Hint';
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 class Hint extends Component {
 	render() {
 		return (
 			<h1 className="hint">
-			    Hello world!!!!!
+			    {this.props.message}
 			</h1>
 		);
 	}
+};
+
+Hint.propTypes = {
+	message: PropTypes.string
 };
 
 export default Hint;
