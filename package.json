@@ -28,7 +28,7 @@
     "express": "^4.13.3",
     "express-session": "^1.13.0",
     "immutable": "^3.7.6",
-    "jquery": "^2.2.0",
+    "jquery": "^3.5.0",
     "jsonwebtoken": "^5.5.4",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
